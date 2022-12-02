@@ -7,12 +7,17 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import net.bytebuddy.utility.nullability.NeverNull;
+
 @Entity
 @Table(name = "orario")
 public class OrarioDipendente {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	@Column
+	@NeverNull
+	private Integer idDipendente;
 	@Column(name = "ore_lavorate")
 	private Integer oreLavorate;
 	@Column(name = "ore_permesso_usufruite")
@@ -31,7 +36,13 @@ public class OrarioDipendente {
 	public void setId(Integer id) {
 		this.id = id;
 	}
+	public Integer getIdDipendente() {
+		return idDipendente;
+	}
 
+	public void setIdDipendente(Integer idDipendente) {
+		this.idDipendente = idDipendente;
+	}
 	public Integer getOreLavorate() {
 		return oreLavorate;
 	}

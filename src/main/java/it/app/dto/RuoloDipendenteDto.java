@@ -7,21 +7,28 @@ public class RuoloDipendenteDto {
 	
 	
 	private Integer id;
-	private String ruolo;
+	private String inquadramento;
 	private String descrizione;
+	private String livello;
 	private ContrattoDipendente contratto;
 	
+	public String getLivello() {
+		return livello;
+	}
+	public void setLivello(String livello) {
+		this.livello = livello;
+	}
 	public Integer getId() {
 		return id;
 	}
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public String getRuolo() {
-		return ruolo;
+	public String getInquadramento() {
+		return inquadramento;
 	}
-	public void setRuolo(String ruolo) {
-		this.ruolo = ruolo;
+	public void setInquadramento(String inquadramento) {
+		this.inquadramento = inquadramento;
 	}
 	public String getDescrizione() {
 		return descrizione;

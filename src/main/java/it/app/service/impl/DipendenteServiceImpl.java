@@ -21,34 +21,55 @@ public class DipendenteServiceImpl implements DipendenteService {
 	@Autowired
 	private DipendenteMapper dipendenteMapper;
 
-//	@Override
-//	public DipendenteDto aggiungi(DipendenteDto dipendenteDto) {
-//		Dipendente dipendente = dm.dtoToModel(dipendenteDto);
-//		return dm.modelToDto(dr.save(dipendente));
-//	}
+	@Override
+	public DipendenteDto aggiungi(DipendenteDto dipendenteDto) {
+		Dipendente dipendente = new Dipendente();// nuovo dipendente
+		dipendente = dipendenteMapper.dtoToModel(dipendenteDto); // trasformo dto in modello
+		dipendenteRepository.save(dipendente); // salvo il modello nel database
+		return dipendenteMapper.modelToDto(dipendente); // ritorno dipendenteDto
+	}
 
 	@Override
 	public DipendenteDto selezionaDaCodiceFiscale(String codiceFiscale) {
-		DipendenteDto dipendenteDto = dipendenteMapper.modelToDto(dipendenteRepository.findByCodiceFiscale(codiceFiscale));
-		System.out.println(dipendenteRepository.findByCodiceFiscale(codiceFiscale).getId());
-		return dipendenteDto;
+		Dipendente dipendente = new Dipendente();
+		dipendente = dipendenteRepository.findByCodiceFiscale(codiceFiscale);
+		return dipendenteMapper.modelToDto(dipendente);
 	}
 
-//	@Override
-//	public DipendenteDto eliminaDaId(int id) {
-//		dr.deleteById(id);
-//		return dm.modelToDto(dr.findById(id));
-//	}
+	@Override
+	public DipendenteDto eliminaDaId(int id) {
+		Dipendente dipendente = new Dipendente();
+		dipendente = dipendenteRepository.findById(id); // prendo il modello
+		dipendenteRepository.deleteById(id); // elimino l'entità per id
+		return dipendenteMapper.modelToDto(dipendente); // converto il modello in dto
+	}
 
-//	@Override
-//	public List<DipendenteDto> vediTutti() {
-//		List<Dipendente> dipendenteList = dr.findAll();
-//		List<DipendenteDto> dipendenteDtoList = new ArrayList<>();
-//
-//		for (Dipendente dipendente : dipendenteList) {
-//			dipendenteDtoList.add(dm.modelToDto(dipendente));
-//		}
-//		return dipendenteDtoList;
-//	}
+	@Override
+	public List<DipendenteDto> vediTutti() {
+		List<Dipendente> dipendenteList = dipendenteRepository.findAll(); //inserisco tutti i dipendenti in una lista
+		List<DipendenteDto> dipendenteDtoList = new ArrayList<>();//creo una lista dto
+		for (Dipendente dipendente : dipendenteList) {
+			dipendenteDtoList.add(dipendenteMapper.modelToDto(dipendente));//ogni dipendente lo inserisco in lista dto
+		}
+		return dipendenteDtoList;//ritorno la lista dto popolata
+	}
+
+	@Override
+	public DipendenteDto vediPerId(int id) {
+		Dipendente dipendente = new Dipendente();
+		dipendente = dipendenteRepository.findById(id);
+		return dipendenteMapper.modelToDto(dipendente); 
+	}
+
+	@Override
+	public List<DipendenteDto> vediDaNomeCognome(String nome, String cognome) {
+		//potrebbero esistere omonimi per questo ho messo la lista
+		List<Dipendente> dipendenteList= dipendenteRepository.findByNomeAndCognome(nome,cognome);
+		List<DipendenteDto> dipendenteDtoList = new ArrayList<>();//creo una lista dto
+		for (Dipendente dipendente : dipendenteList) {
+			dipendenteDtoList.add(dipendenteMapper.modelToDto(dipendente));//ogni dipendente lo inserisco in lista dto
+		}
+		return dipendenteDtoList;//ritorno la lista dto popolata
+	}
 
 }

@@ -3,7 +3,9 @@ package it.app.dto;
 public class OrarioDipendenteDto {
 
 	private Integer id;
-
+	
+	private Integer idDipendente;
+	
 	private Integer oreLavorate;
 
 	private Integer orePermessoUsufruite;
@@ -20,6 +22,13 @@ public class OrarioDipendenteDto {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+	public Integer getIdDipendente() {
+		return idDipendente;
+	}
+
+	public void setIdDipendente(Integer idDipendente) {
+		this.idDipendente = idDipendente;
 	}
 
 	public Integer getOreLavorate() {

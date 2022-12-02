@@ -1,0 +1,8 @@
+aziendaDipendenti (model) : "bisogna vedere come definire bene le variabili, nel link segnato come (----NOTE LEGALI----)
+                             ci sono indicazioni di legge"
+                             
+trasferimento immagini :  https://medium.com/shoutloudz/spring-boot-upload-and-download-images-using-jpa-b1c9ef174dc0    
+
+DipendentiServiceImpl :  l'ho migliorato e commentato, ma tranquillamente migliorabile  
+
+ContrattoDipendente :  mantenere relazione da database con "RuoloDipendente"                      

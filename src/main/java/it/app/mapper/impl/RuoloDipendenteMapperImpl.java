@@ -11,9 +11,10 @@ public class RuoloDipendenteMapperImpl implements RuoloDipendenteMapper {
 	@Override
 	public RuoloDipendente dtoToModel(RuoloDipendenteDto ruoloDto) {
       RuoloDipendente ruolo=new RuoloDipendente();
+      ruolo.setLivello(ruoloDto.getLivello());
       ruolo.setContratto(ruoloDto.getContratto());
       ruolo.setDescrizione(ruoloDto.getDescrizione());
-      ruolo.setRuolo(ruoloDto.getRuolo());
+      ruolo.setInquadramento(ruoloDto.getInquadramento());
       ruolo.setId(ruoloDto.getId());
 		return ruolo;
 	}
@@ -21,9 +22,10 @@ public class RuoloDipendenteMapperImpl implements RuoloDipendenteMapper {
 	@Override
 	public RuoloDipendenteDto modelToDto(RuoloDipendente ruolo) {
 	      RuoloDipendenteDto ruoloDto=new RuoloDipendenteDto();
+	      ruoloDto.setLivello(ruolo.getLivello());
 	      ruoloDto.setContratto(ruolo.getContratto());
 	      ruoloDto.setDescrizione(ruoloDto.getDescrizione());
-	      ruoloDto.setRuolo(ruoloDto.getRuolo());
+	      ruoloDto.setInquadramento(ruoloDto.getInquadramento());
 	      ruoloDto.setId(ruoloDto.getId());		
 	      return ruoloDto;
 	}

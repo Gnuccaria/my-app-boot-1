@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import net.bytebuddy.utility.nullability.NeverNull;
+
 @Entity
 @Table(name="schedule")
 public class ScheduleLavoro {
@@ -18,14 +20,19 @@ public class ScheduleLavoro {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	@Column
+	@NeverNull
+	private Integer idLuogo;
+	@Column
+	@NeverNull
+	private Integer idDipendente;
+	@Column
+	@NeverNull
 	private String task;
+	@NeverNull
 	@Column(name="datatask")
 	private Date dataTask;
 	@Column
-	private Integer status;//simbolo colorato (onCange-transition)
-	@OneToOne
-	@JoinColumn(name="dip_id",referencedColumnName = "id" )
-	private Dipendente dipendente;
+	private String note;
 	
 	
 	public Integer getId() {
@@ -52,13 +59,7 @@ public class ScheduleLavoro {
 	public void setNote(String note) {
 		this.note = note;
 	}
-	public Dipendente getDipendente() {
-		return dipendente;
-	}
-	public void setDipendente(Dipendente dipendente) {
-		this.dipendente = dipendente;
-	}
-	@Column
-	private String note;
+	
+	
 	
 }

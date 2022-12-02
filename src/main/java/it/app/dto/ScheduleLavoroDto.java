@@ -10,7 +10,7 @@ public class ScheduleLavoroDto {
 	private Integer id;
 	private String task;
 	private Date dataTask;
-	private Integer status;//simbolo colorato (css:transition)
+	
 	public Integer getId() {
 		
 		return id;
@@ -30,12 +30,7 @@ public class ScheduleLavoroDto {
 	public void setDataTask(Date dataTask) {
 		this.dataTask = dataTask;
 	}
-	public Integer getStatus() {
-		return status;
-	}
-	public void setStatus(Integer status) {
-		this.status = status;
-	}
+	
 	public Dipendente getDipendente() {
 		return dipendente;
 	}

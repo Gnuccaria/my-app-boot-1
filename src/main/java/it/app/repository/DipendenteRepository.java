@@ -20,5 +20,5 @@ public interface DipendenteRepository extends CrudRepository<Dipendente, Integer
 	List<Dipendente> findAll();
 
 	@Query(value = "SELECT * FROM dipendente  WHERE name=?1 and surname=?2")
-	Dipendente findByNomeAndCognome(String nome, String cognome);
+	List<Dipendente> findByNomeAndCognome(String nome, String cognome);
 }

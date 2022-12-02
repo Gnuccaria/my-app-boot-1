@@ -23,5 +23,5 @@ public class Imprevisti {
 	@NeverNull
 	@Column
 	private Date data;
-	//allegare file, foto
+	//allegare file, foto  https://medium.com/shoutloudz/spring-boot-upload-and-download-images-using-jpa-b1c9ef174dc0
 }

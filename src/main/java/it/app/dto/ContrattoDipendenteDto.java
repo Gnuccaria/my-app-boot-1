@@ -8,11 +8,27 @@ import it.app.model.RuoloDipendente;
 public class ContrattoDipendenteDto {
 
     private Integer Id;
+	private Integer idDipendente;
 	private String tipo;
     private Integer oreContratto;
 	private Date dataAssunzione;
 	private Date dataScadenzaContratto;
+	private Float retribuzione;
 	private RuoloDipendente ruoloDipendente;
+	
+	public Integer getIdDipendente() {
+		return idDipendente;
+	}
+	public void setIdDipendente(Integer idDipendente) {
+		this.idDipendente = idDipendente;
+	}
+	public Float getRetribuzione() {
+		return retribuzione;
+	}
+	public void setRetribuzione(Float retribuzione) {
+		this.retribuzione = retribuzione;
+	}
+	
 	
 	public RuoloDipendente getRuoloDipendente() {
 		return ruoloDipendente;

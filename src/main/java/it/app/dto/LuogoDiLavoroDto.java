@@ -7,6 +7,7 @@ public class LuogoDiLavoroDto {
 	private String citta;
 	private String indirizzo;
 	private Integer civico;
+	
 	public Integer getId() {
 		return id;
 	}

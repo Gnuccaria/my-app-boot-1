@@ -19,6 +19,7 @@ public class StoricoLavoro {// legata a schedule
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+
 	@NeverNull
 	@Column
 	private String mansione;// materia lavoro svolto
