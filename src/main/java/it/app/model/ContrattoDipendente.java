@@ -21,7 +21,7 @@ public class ContrattoDipendente {
 	private Integer Id;
 	@Column
 	@NeverNull
-	private Integer idDipendente;
+	private String codiceFiscale;
 	@Column
 	@NeverNull
 	private String tipo;
@@ -47,11 +47,11 @@ public class ContrattoDipendente {
 	public void setId(Integer id) {
 		Id = id;
 	}
-	public Integer getIdDipendente() {
-		return idDipendente;
+	public String getCodiceDipendente() {
+		return codiceFiscale;
 	}
-	public void setIdDipendente(Integer idDipendente) {
-		this.idDipendente = idDipendente;
+	public void setCodiceDipendente(String codiceFiscale) {
+		this.codiceFiscale = codiceFiscale;
 	}
 	public String getTipo() {
 		return tipo;

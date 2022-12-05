@@ -5,7 +5,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
+import it.app.service.ContrattoService;
 import it.app.service.DipendenteService;
+import it.app.service.impl.ContrattoServiceImpl;
 import it.app.service.impl.DipendenteServiceImpl;
 //webSocket magichine
 //https://www.youtube.com/watch?v=4Hyv4M1kFeM
@@ -23,6 +25,9 @@ public class MyDemoBootApplication {
 public DipendenteService getDipendenteService() {
 	return new DipendenteServiceImpl();
 }
-	
+@Bean 
+public ContrattoService getContrattoDipendente() {
+	return new ContrattoServiceImpl();
+}
 	
 }

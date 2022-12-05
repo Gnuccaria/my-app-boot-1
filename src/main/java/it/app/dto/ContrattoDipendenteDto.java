@@ -8,7 +8,7 @@ import it.app.model.RuoloDipendente;
 public class ContrattoDipendenteDto {
 
     private Integer Id;
-	private Integer idDipendente;
+	private String codiceFiscale;
 	private String tipo;
     private Integer oreContratto;
 	private Date dataAssunzione;
@@ -16,11 +16,11 @@ public class ContrattoDipendenteDto {
 	private Float retribuzione;
 	private RuoloDipendente ruoloDipendente;
 	
-	public Integer getIdDipendente() {
-		return idDipendente;
+	public String getCodiceDipendente() {
+		return codiceFiscale;
 	}
-	public void setIdDipendente(Integer idDipendente) {
-		this.idDipendente = idDipendente;
+	public void setCodiceDipendentee(String codiceFiscale) {
+		this.codiceFiscale = codiceFiscale;
 	}
 	public Float getRetribuzione() {
 		return retribuzione;

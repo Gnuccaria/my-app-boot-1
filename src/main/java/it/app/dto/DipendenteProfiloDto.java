@@ -2,13 +2,12 @@ package it.app.dto;
 
 
 
-import it.app.model.Dipendente;
 
 public class DipendenteProfiloDto {
 	private Integer id;
     private String userName; 
     private String password;
-    private Dipendente dipendente;
+    private String codiceFiscale;
     
 	public Integer getId() {
 		return id;
@@ -28,10 +27,11 @@ public class DipendenteProfiloDto {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public Dipendente getDipendente() {
-		return dipendente;
+	public String getCodiceFiscale() {
+		return codiceFiscale;
 	}
-	public void setDipendente(Dipendente dipendente) {
-		this.dipendente = dipendente;
+	public void setCodiceFiscale(String codiceFiscale) {
+		this.codiceFiscale = codiceFiscale;
 	}
+	
 }

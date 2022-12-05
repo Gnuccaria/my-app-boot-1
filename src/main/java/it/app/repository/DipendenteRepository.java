@@ -12,13 +12,13 @@ import it.app.model.Dipendente;
 public interface DipendenteRepository extends CrudRepository<Dipendente, Integer> {
 	@Query(value = "SELECT c FROM dipendente c  WHERE c.codiceFiscale = :codiceFiscale")
 	Dipendente findByCodiceFiscale(String codiceFiscale);
-
+    
 	void deleteById(Integer id);
 
 	Dipendente findById(int id);
 
 	List<Dipendente> findAll();
 
-	@Query(value = "SELECT * FROM dipendente  WHERE name=?1 and surname=?2")
+	@Query(value = "SELECT * FROM dipendente  WHERE nome=?1 and cognome=?2")
 	List<Dipendente> findByNomeAndCognome(String nome, String cognome);
 }

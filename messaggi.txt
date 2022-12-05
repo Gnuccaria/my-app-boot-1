@@ -1,8 +1,14 @@
 aziendaDipendenti (model) : "bisogna vedere come definire bene le variabili, nel link segnato come (----NOTE LEGALI----)
                              ci sono indicazioni di legge"
                              
-trasferimento immagini :  https://medium.com/shoutloudz/spring-boot-upload-and-download-images-using-jpa-b1c9ef174dc0    
+-trasferimento immagini :  https://medium.com/shoutloudz/spring-boot-upload-and-download-images-using-jpa-b1c9ef174dc0    
 
-DipendentiServiceImpl :  l'ho migliorato e commentato, ma tranquillamente migliorabile  
+-DipendentiServiceImpl :  l'ho migliorato e commentato, ma tranquillamente migliorabile  
 
-ContrattoDipendente :  mantenere relazione da database con "RuoloDipendente"                      
+-ContrattoDipendente :  mantenere relazione da database con "RuoloDipendente"     
+
+-é meglio relazionare da "codice fiscale" perché altrimenti bisogna fare una query da codice fiscale e prendere l'id del dipendente. 
+invece, al momento di aggiungere il codice fiscale al dipendente, verrà passato direttamente al suo contratto senza fare altre query 
+
+- le operazioni crud facciamole passando il codice fiscale e non tutto l'oggetto dto per rendere tutto più leggero
+          
