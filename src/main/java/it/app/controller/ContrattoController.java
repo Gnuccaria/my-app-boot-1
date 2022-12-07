@@ -1,6 +1,7 @@
 package it.app.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,8 +19,10 @@ import it.app.service.DipendenteService;
 @RequestMapping("/contratto")
 public class ContrattoController {
 	@Autowired
+	@Qualifier("contratto")
 	ContrattoService contrattoService;
 	@Autowired
+	@Qualifier("dipendente")
 	DipendenteService dipendenteService;
 
 	@PostMapping("/nuovo")

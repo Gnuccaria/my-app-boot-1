@@ -21,42 +21,6 @@ public class DipendenteDto {
 	private String email;
 	private String numeroCellulare;
 	private String telefonoCasa;
-	private ContrattoDipendente contratto;
-	private AziendaDipendente azienda;
-	private OrarioDipendente orario;
-	private StatusGenerale status;
-
-	public ContrattoDipendente getContratto() {
-		return contratto;
-	}
-
-	public void setContratto(ContrattoDipendente contratto) {
-		this.contratto = contratto;
-	}
-
-	public AziendaDipendente getAzienda() {
-		return azienda;
-	}
-
-	public void setAzienda(AziendaDipendente azienda) {
-		this.azienda = azienda;
-	}
-
-	public OrarioDipendente getOrario() {
-		return orario;
-	}
-
-	public void setOrario(OrarioDipendente orario) {
-		this.orario = orario;
-	}
-
-	public StatusGenerale getStatus() {
-		return status;
-	}
-
-	public void setStatus(StatusGenerale status) {
-		this.status = status;
-	}
 
 	public Integer getId() {
 		return id;

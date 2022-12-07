@@ -5,7 +5,9 @@ import it.app.model.DipendenteProfilo;
 
 public interface DipendenteProfiloService {
 
-	DipendenteProfilo aggiungi(DipendenteProfiloDto dto);
-	void elimina(String CodiceFiscale);
+	DipendenteProfiloDto aggiungi(DipendenteProfiloDto dto);
+	Integer elimina(String CodiceFiscale);
+	DipendenteProfiloDto vedi(String codiceFiscale);
+	DipendenteProfiloDto modifica(String codiceFiscale); //legge da codiceFiscale e reinserisce nel database il modello
 	
 }

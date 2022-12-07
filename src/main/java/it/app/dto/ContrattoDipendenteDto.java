@@ -16,10 +16,11 @@ public class ContrattoDipendenteDto {
 	private Float retribuzione;
 	private RuoloDipendente ruoloDipendente;
 	
-	public String getCodiceDipendente() {
+
+	public String getCodiceFiscale() {
 		return codiceFiscale;
 	}
-	public void setCodiceDipendentee(String codiceFiscale) {
+	public void setCodiceFiscale(String codiceFiscale) {
 		this.codiceFiscale = codiceFiscale;
 	}
 	public Float getRetribuzione() {

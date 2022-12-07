@@ -40,7 +40,6 @@ public class ContrattoDipendente {
 	@JoinColumn(name = "ruolo_id", referencedColumnName = "id")
 	private RuoloDipendente ruoloDipendente;
 	
-	
 	public Integer getId() {
 		return Id;
 	}

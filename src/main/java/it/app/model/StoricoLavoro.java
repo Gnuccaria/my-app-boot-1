@@ -25,10 +25,14 @@ public class StoricoLavoro {// legata a schedule
 	private String mansione;// materia lavoro svolto
 	@NeverNull
 	@Column
-	private Date dataTask;
+	private Date dataInizioTask;
+	
+	@Column
+	private Date dataFineTask;//può essere null perché nello storico vanno le task che sono ALMENO iniziate, non perforza finite
 	@NeverNull
 	@Column
 	private String descrizione;// allegare documenti
+
 	@OneToOne
 	@JoinColumn(name = "luogo_id", referencedColumnName = "id")
 	private LuogoDiLavoro luogo;
@@ -49,12 +53,19 @@ public class StoricoLavoro {// legata a schedule
 		this.id = id;
 	}
 
-	public Date getDataTask() {
-		return dataTask;
+	public Date getDataInizioTask() {
+		return dataInizioTask;
 	}
 
-	public void setDataTask(Date dataTask) {
-		this.dataTask = dataTask;
+	public void setDataInizioTask(Date dataTask) {
+		this.dataFineTask = dataTask;
+	}
+	public Date getDataFineTask() {
+		return dataFineTask;
+	}
+
+	public void setDataFineTask(Date dataFineTask) {
+		this.dataFineTask = dataFineTask;
 	}
 
 	public String getDescrizione() {

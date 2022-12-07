@@ -8,7 +8,8 @@ public class StoricoLavoroDto {
 	 
 		private String mansione;//materia lavoro svolto
 		private Integer id;
-		private Date dataTask;
+		private Date dataInizioTask;
+		private Date dataFineTask;
 		private String descrizione;//allegare documenti
 		private LuogoDiLavoro luogo;
 		
@@ -27,11 +28,17 @@ public class StoricoLavoroDto {
 		public void setId(Integer id) {
 			this.id = id;
 		}
-		public Date getDataTask() {
-			return dataTask;
+		public Date getDataInizioTask() {
+			return dataInizioTask;
 		}
-		public void setDataTask(Date dataTask) {
-			this.dataTask = dataTask;
+		public void setDataInizioTask(Date dataTask) {
+			this.dataInizioTask = dataTask;
+		}
+		public Date getDataFineTask() {
+			return dataFineTask;
+		}
+		public void setDataFineTask(Date dataFineTask) {
+			this.dataFineTask = dataFineTask;
 		}
 		public String getDescrizione() {
 			return descrizione;

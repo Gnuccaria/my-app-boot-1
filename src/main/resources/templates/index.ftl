@@ -55,13 +55,17 @@
  
   
 
+
+
+
+
     <button id="add">aggiungi</button>
     <button id="elimina">elimina</button>
     <button id="cambia">stato</button>
     <button id="findall">vedi</button>
     <button id="findFiscal">vedi da codice fiscale</button>
     <button id="veditutto">vedi tutto</button>
-
+     <button id="findFiscalcont">vedi contratto da codice fiscale</button>
 
 
 
@@ -69,33 +73,48 @@
 
 
    dipendente={
-       name:"abcd", //$("#name").val(),
-       surname:"abcd", //$("#surname").val(),
-       birthPlace:"abcd", //$("#birth_place").val(),
-       fiscalCode:"abcd" ,//$("#fiscal_code").val(),
-       residence:"abcd" ,//$("#residence").val(), 
-       address:"abcd" ,//$("#address").val(),
+      nome:"abcd", //$("#name").val(),
+       cognome:"abcd", //$("#surname").val(),
+       luogoNascita:"abcd", //$("#birth_place").val(),
+       codiceFiscale:"codiceDelDipendente" ,//$("#fiscal_code").val(),
+       residenza:"abcd" ,//$("#residence").val(), 
+       indirizzo:"abcd" ,//$("#address").val(),
        email:"abcd" ,//$("#email").val(),
-       cellPhone:"abcd", //$("#cell_phone").val(),
-       homeTelephone:"abcd", //$("#home_telephone").val(),
-       sex:"abcd", //$("#sex").val(), 
-       birthDate:new Date() ,//$("#birth_date").val()//deve essere in formato data
-       state:1 
+       numCellulare:"abcd", //$("#cell_phone").val(),
+       telCasa:"abcd", //$("#home_telephone").val(),
+       sesso:"abcd", //$("#sex").val(), 
+       dataNascita:new Date() ,//$("#birth_date").val()//deve essere in formato data
+  
        }
-
+  
+       contratto={
+        codiceFiscale:dipendente.codiceFiscale,
+        tipo:"stage",
+        oreContratto:40,
+        dataAssunzione:new Date(),
+        dataScadenzaContratto:new Date(),
+        retribuzione:800.0,
+        ruolo_id:1,
+       }
+     
+       profilo={
+        userName:"user",
+        password:"User1000",
+        codiceFiscale:dipendente.codiceFiscale,
+       }
  $(document).ready(function () {
 
 	 
 	
 	$(document).on('click', "#add", function () {
-       
+      
 	   
 
 console.log(dipendente)
 	
 	$.ajax({//
         type: 'POST',
-        url: '/nuovo',
+        url: '/dipendente/nuovo',
         contentType: "application/json",
         data:  JSON.stringify(dipendente),
       asynch: false,
@@ -111,12 +130,76 @@ console.log(dipendente)
 
 	//location.reload();
 	});
+  	$(document).on('click', "#add", function () {
+
+	$.ajax({//
+        type: 'POST',
+        url: '/contratto/nuovo',
+        contentType: "application/json",
+        data:  JSON.stringify(contratto),
+      asynch: false,
+      
+       
+         success: function(text) {
+            console.log(text);
+        },
+        error: function (jqXHR) {
+            console.log(jqXHR);
+        } 
+    });//
+
+	//location.reload();
+	});
+		$(document).on('click', "#add", function () {
+      
+	   
+
+console.log(profilo)
 	
+	$.ajax({//
+        type: 'POST',
+        url: '/profilo/nuovo',
+        contentType: "application/json",
+        data:  JSON.stringify(profilo),
+      asynch: false,
+      
+       
+         success: function(text) {
+            console.log(text);
+        },
+        error: function (jqXHR) {
+            console.log(jqXHR);
+        } 
+    });//
+
+	//location.reload();
+	});
+
+$(document).on('click', "#findFiscalcont", function (){
+	$.ajax({//
+        type: 'POST',
+        url: '/contratto/vedi',
+        data:{codice:"codiceDelDipendente",},
+       asynch: false,
+       
+         success: function(text) {
+            console.log(text)
+           fiscal=text;
+        },
+        error: function (jqXHR) {
+            console.log(jqXHR);
+        } 
+    });//
+	//location.reload();
+  })
+
+
+
 	$(document).on('click', "#elimina", function (){
 	$.ajax({//
         type: 'POST',
-        url: '/elimina',
-        data:{fiscal:"abcd",},
+        url: '/profilo/elimina',
+        data:{codice:"codiceDelDipendente",},
       asynch: false,
        
          success: function(text) {
@@ -149,8 +232,8 @@ let fiscal;
 $(document).on('click', "#findFiscal", function (){
 	$.ajax({//
         type: 'POST',
-        url: '/seleziona/codicefiscale',
-        data:{fiscal_code:"abcd",},
+        url: '/dipendente/vedi',
+        data:{fiscal_code:"codiceDelDipendente",},
        asynch: false,
        
          success: function(text) {

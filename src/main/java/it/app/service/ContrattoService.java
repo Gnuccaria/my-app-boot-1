@@ -9,7 +9,7 @@ public interface ContrattoService {
 
 	ContrattoDipendenteDto aggiungiContratto (ContrattoDipendenteDto dto);
 	ContrattoDipendenteDto vediContrattoDaId(int id);
-	List <ContrattoDipendenteDto> vediContrattoDaNome(String nome,String cognome);
+	
 	ContrattoDipendenteDto eliminaContrattoId(int id);
 	ContrattoDipendenteDto eliminaContrattoCodice(String codiceFiscale);
 	List<ContrattoDipendenteDto>vediTutti();

@@ -55,57 +55,11 @@ public class Dipendente {
 	private String telefonoCasa;
 	@NeverNull
 
-	@OneToOne
-	@JoinColumn(name = "status_id", referencedColumnName = "id")
-	private StatusGenerale statusGenerale;
 
-	@OneToOne
-	@JoinColumn(name = "contratto_id", referencedColumnName = "id")
-	private ContrattoDipendente contrattoDipendente;
-
-	@OneToOne
-	@JoinColumn(name = "azienda_id", referencedColumnName = "id")
-	private AziendaDipendente aziendaDipendente;
-
-	@OneToOne
-	@JoinColumn(name = "ore_id", referencedColumnName = "id")
-	private OrarioDipendente orarioDipendente;
 	
 
 	public Integer getId() {
 		return id;
-	}
-
-	public StatusGenerale getStatusGenerale() {
-		return statusGenerale;
-	}
-
-	public void setStatusGenerale(StatusGenerale statusGenerale) {
-		this.statusGenerale = statusGenerale;
-	}
-
-	public ContrattoDipendente getContrattoDipendente() {
-		return contrattoDipendente;
-	}
-
-	public void setContrattoDipendente(ContrattoDipendente contrattoDipendente) {
-		this.contrattoDipendente = contrattoDipendente;
-	}
-
-	public AziendaDipendente getAziendaDipendente() {
-		return aziendaDipendente;
-	}
-
-	public void setAziendaDipendente(AziendaDipendente aziendaDipendente) {
-		this.aziendaDipendente = aziendaDipendente;
-	}
-
-	public OrarioDipendente getOrarioDipendente() {
-		return orarioDipendente;
-	}
-
-	public void setOrarioDipendente(OrarioDipendente orarioDipendente) {
-		this.orarioDipendente = orarioDipendente;
 	}
 
 	public void setId(Integer id) {

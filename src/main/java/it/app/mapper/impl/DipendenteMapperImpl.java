@@ -21,11 +21,7 @@ public class DipendenteMapperImpl implements DipendenteMapper {
 		modello.setLuogoNascita(dipendenteDto.getLuogoNascita());
 		modello.setNumeroCellulare(dipendenteDto.getNumeroCellulare());
 		modello.setSesso(dipendenteDto.getSesso());
-		modello.setAziendaDipendente(dipendenteDto.getAzienda());
-		modello.setContrattoDipendente(dipendenteDto.getContratto());
-		modello.setOrarioDipendente(dipendenteDto.getOrario());
 		modello.setResidenza(dipendenteDto.getResidenza());
-		modello.setStatusGenerale(dipendenteDto.getStatus());
 		modello.setTelefonoCasa(dipendenteDto.getTelefonoCasa());
 		modello.setNome(dipendenteDto.getNome());
 		return modello;
@@ -43,11 +39,7 @@ public class DipendenteMapperImpl implements DipendenteMapper {
 		modelloDto.setLuogoNascita(dipendente.getLuogoNascita());
 		modelloDto.setNumeroCellulare(dipendente.getNumeroCellulare());
 		modelloDto.setSesso(dipendente.getSesso());
-		modelloDto.setAzienda(dipendente.getAziendaDipendente());
-		modelloDto.setContratto(dipendente.getContrattoDipendente());
-		modelloDto.setOrario(dipendente.getOrarioDipendente());
 		modelloDto.setResidenza(dipendente.getResidenza());
-		modelloDto.setStatus(dipendente.getStatusGenerale());
 		modelloDto.setTelefonoCasa(dipendente.getTelefonoCasa());
 		modelloDto.setNome(dipendente.getNome());
 		return modelloDto;

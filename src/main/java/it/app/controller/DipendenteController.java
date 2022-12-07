@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,45 +23,46 @@ import it.app.service.DipendenteService;
 public class DipendenteController {
 
 	@Autowired
+	@Qualifier("dipendente")
 	DipendenteService dipendenteService;
 
 	@PostMapping("/nuovo")
-	public ResponseEntity<Object> nuovo(@RequestBody DipendenteDto dipendenteDto) {
+	public DipendenteDto nuovo(@RequestBody DipendenteDto dipendenteDto) {
+		DipendenteDto dto = new DipendenteDto();
 		try {
-			dipendenteService.aggiungi(dipendenteDto);
+			dto = dipendenteService.aggiungi(dipendenteDto);// questo metodo ritorna un dto... a che serve se non si
+															// usa???
 		} catch (Exception e) {
 			e.getMessage();
 		}
-		return new ResponseEntity<>(HttpStatus.CREATED);
-
+		return dto;
 	}
 
-	@PostMapping("/seleziona/codicefiscale")
+	@PostMapping("/vedi")
 	public DipendenteDto selezionaCodiceFiscale(@RequestParam("fiscal_code") String code) {
 		DipendenteDto dipendenteDto = new DipendenteDto();
 		try {
 			dipendenteDto = dipendenteService.selezionaDaCodiceFiscale(code);
-			System.out.println(dipendenteDto.getId());
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 			return null;
 		}
 		return dipendenteDto;
 	}
+
 	@PostMapping("/modifica")
 	public DipendenteDto modifica(@RequestBody DipendenteDto dto) {
-		//inserire il dto modificato
-		
+		// inserire il dto modificato
+
 		try {
 			dipendenteService.aggiungi(dto);
 		} catch (Exception e) {
 			e.getMessage();
 		}
-		
+
 		return dto;
-		
+
 	}
-	
 
 	@PostMapping("/elimina")
 	public DipendenteDto eliminaCodiceFiscale(@RequestParam("fiscal") String code) {
@@ -100,7 +102,8 @@ public class DipendenteController {
 	}
 
 	@PostMapping("/vedi/nominativi")
-	public List<DipendenteDto> vediDipendente(@RequestParam("nome") String nome,@RequestParam("cognome") String Cognome) {
+	public List<DipendenteDto> vediDipendente(@RequestParam("nome") String nome,
+			@RequestParam("cognome") String Cognome) {
 		List<DipendenteDto> dto = new ArrayList<>();
 		try {
 			dto = dipendenteService.vediDaNomeCognome(nome, Cognome);
@@ -110,5 +113,5 @@ public class DipendenteController {
 		}
 		return dto;
 	}
-	
+
 }

@@ -11,7 +11,8 @@ public class StoricoLavoroMapperImpl implements StoricoLavoroMapper {
 	@Override
 	public StoricoLavoroDto modelToDto(StoricoLavoro storico) {
       StoricoLavoroDto storicoDto=new StoricoLavoroDto();
-      storicoDto.setDataTask(storico.getDataTask());
+      storicoDto.setDataInizioTask(storico.getDataInizioTask());
+      storicoDto.setDataFineTask(storico.getDataFineTask());
       storicoDto.setDescrizione(storico.getDescrizione());
       storicoDto.setLuogo(storico.getLuogo());
       storicoDto.setMansione(storico.getMansione());
@@ -22,7 +23,8 @@ public class StoricoLavoroMapperImpl implements StoricoLavoroMapper {
 	@Override
 	public StoricoLavoro dtoToModel(StoricoLavoroDto storicoDto) {
 	      StoricoLavoro storico=new StoricoLavoro();
-	      storico.setDataTask(storicoDto.getDataTask());
+	      storico.setDataInizioTask(storicoDto.getDataInizioTask());
+	      storico.setDataFineTask(storicoDto.getDataFineTask());
 	      storico.setDescrizione(storicoDto.getDescrizione());
 	      storico.setLuogo(storicoDto.getLuogo());
 	      storico.setMansione(storicoDto.getMansione());
