@@ -12,21 +12,19 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import net.bytebuddy.utility.nullability.NeverNull;
-
+//sospeso
 @Entity
 @Table(name = "storico")
 public class StoricoLavoro {// legata a schedule
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-
 	@NeverNull
 	@Column
 	private String mansione;// materia lavoro svolto
 	@NeverNull
 	@Column
 	private Date dataInizioTask;
-	
 	@Column
 	private Date dataFineTask;//può essere null perché nello storico vanno le task che sono ALMENO iniziate, non perforza finite
 	@NeverNull

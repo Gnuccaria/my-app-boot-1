@@ -14,10 +14,10 @@ import it.app.model.DipendenteProfilo;
 public interface DipendenteProfiloRepository extends CrudRepository<DipendenteProfilo, Integer>{
 
 
-	@Query(value = "SELECT c FROM profilo c  WHERE c.codiceFiscale = :codiceFiscale")
-    DipendenteProfilo findByCodiceFiscale(String codiceFiscale);
+	@Query(value = "SELECT c FROM profilo c  WHERE c.username = :codiceFiscale")
+    DipendenteProfilo findByUsername(String codiceFiscale);
 	List<DipendenteProfilo>findAll();
 	@Transactional
-	@Query(value = "DELETE c FROM profilo c  WHERE c.codiceFiscale = :codiceFiscale")
-	void deleteByCodiceFiscale(String codiceFiscale);
+	@Query(value = "DELETE c FROM profilo c  WHERE c.username = :codiceFiscale")
+	void deleteByUsername(String codiceFiscale);
 }

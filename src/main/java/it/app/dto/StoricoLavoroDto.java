@@ -3,7 +3,7 @@ package it.app.dto;
 import java.util.Date;
 
 import it.app.model.LuogoDiLavoro;
-
+//sospeso
 public class StoricoLavoroDto {
 	 
 		private String mansione;//materia lavoro svolto

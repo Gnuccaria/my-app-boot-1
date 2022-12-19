@@ -11,4 +11,10 @@ aziendaDipendenti (model) : "bisogna vedere come definire bene le variabili, nel
 invece, al momento di aggiungere il codice fiscale al dipendente, verrà passato direttamente al suo contratto senza fare altre query 
 
 - le operazioni crud facciamole passando il codice fiscale e non tutto l'oggetto dto per rendere tutto più leggero
-          
+    
+    
+    
+- la tabella "Storico" non serve perchè lo storico va preso dalla tabella "shedule" di tutti i lavori cominciati e finiti  
+
+- schedule fungerà da storico: quando si accederà allo storico di un luogo, si accederà alla tabella schedule, che avrà come
+  chiave, id del luogo e la condizione "con la data >= (maggiore uguale) ad oggi"   

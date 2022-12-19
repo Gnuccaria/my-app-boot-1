@@ -27,7 +27,7 @@ public class AziendaDipendente {
 	private Integer numeroSoci;
 	@Lob
 	@Column(name="soci")
-	private List<String> soci;
+	private List<String> soci;//fare tabella soci... evitare liste
 	//codiceFiscale/numero di partita iva
 	//ufficio del Registro delle Imprese presso cui la società è iscritta ed il numero di iscrizione (REA)
 	//eventuale stato di liquidazione della società

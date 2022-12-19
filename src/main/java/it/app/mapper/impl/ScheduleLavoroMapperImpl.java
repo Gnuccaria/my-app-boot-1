@@ -15,17 +15,25 @@ public class ScheduleLavoroMapperImpl implements ScheduleLavoroMapper {
 	public ScheduleLavoro dtoToModel(ScheduleLavoroDto dto) {
 		ScheduleLavoro modello = new ScheduleLavoro();
 		modello.setId(dto.getId());
-		modello.setTask(dto.getTask());
-		modello.setDataTask(dto.getDataTask());
+		modello.setDataInizioTask(dto.getDataInizioTask());
+		modello.setDataFineTask(dto.getDataFineTask());
+		modello.setDescrizione(dto.getDescrizione());
+		//modello.setIdDipendente(dto.getIdDipendente());
+		modello.setLuogo(dto.getLuogo());
+		modello.setMansione(dto.getMansione());//materia lavoro svolto (task)
 		return modello;
 	}
 
 	@Override
 	public ScheduleLavoroDto modelToDto(ScheduleLavoro modello) {
-		ScheduleLavoroDto dto = new ScheduleLavoroDto();
+		ScheduleLavoroDto dto=new ScheduleLavoroDto();
 		dto.setId(modello.getId());
-		dto.setTask(modello.getTask());
-		dto.setDataTask(modello.getDataTask());
+		dto.setDataInizioTask(modello.getDataInizioTask());
+		dto.setDataFineTask(modello.getDataFineTask());
+		dto.setDescrizione(modello.getDescrizione());
+		//.setIdDipendente(modello.getIdDipendente());
+		dto.setLuogo(modello.getLuogo());
+		dto.setMansione(modello.getMansione());
 		return dto;
 	}
 

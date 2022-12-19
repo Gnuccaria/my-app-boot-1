@@ -4,7 +4,9 @@ import java.util.Date;
 
 import it.app.model.AziendaDipendente;
 import it.app.model.ContrattoDipendente;
+import it.app.model.DipendenteProfilo;
 import it.app.model.OrarioDipendente;
+import it.app.model.Stato;
 import it.app.model.StatusGenerale;
 
 public class DipendenteDto {
@@ -19,8 +21,35 @@ public class DipendenteDto {
 	private String residenza;
 	private String indirizzo;
 	private String email;
-	private String numeroCellulare;
+	private String telefonoCellulare;
 	private String telefonoCasa;
+	private Stato stato;
+	private DipendenteProfilo profilo;
+	private ContrattoDipendente contratto;
+
+	public ContrattoDipendente getContratto() {
+		return contratto;
+	}
+
+	public void setContratto(ContrattoDipendente contratto) {
+		this.contratto = contratto;
+	}
+
+	public Stato getStato() {
+		return stato;
+	}
+
+	public void setStato(Stato stato) {
+		this.stato = stato;
+	}
+
+	public DipendenteProfilo getProfilo() {
+		return profilo;
+	}
+
+	public void setProfilo(DipendenteProfilo profilo) {
+		this.profilo = profilo;
+	}
 
 	public Integer getId() {
 		return id;
@@ -102,12 +131,12 @@ public class DipendenteDto {
 		this.email = email;
 	}
 
-	public String getNumeroCellulare() {
-		return numeroCellulare;
+	public String getTelefonoCellulare() {
+		return telefonoCellulare;
 	}
 
-	public void setNumeroCellulare(String numeroCellulare) {
-		this.numeroCellulare = numeroCellulare;
+	public void setTelefonoCellulare(String telefonoCellulare) {
+		this.telefonoCellulare = telefonoCellulare;
 	}
 
 	public String getTelefonoCasa() {

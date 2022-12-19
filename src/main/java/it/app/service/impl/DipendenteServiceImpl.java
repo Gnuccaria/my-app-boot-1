@@ -22,7 +22,6 @@ public class DipendenteServiceImpl implements DipendenteService {
 	public DipendenteDto aggiungi(DipendenteDto dipendenteDto) {
 		Dipendente dipendente = new Dipendente();// nuovo dipendente
 		dipendente = dipendenteRepository.findByCodiceFiscale(dipendenteDto.getCodiceFiscale());// verifico se esiste
-		
 		if (dipendente == null) {//se non esiste ancora
 			dipendente = dipendenteMapper.dtoToModel(dipendenteDto); // trasformo dto in modello
 			dipendenteRepository.save(dipendente); // salvo il modello nel database
@@ -30,7 +29,17 @@ public class DipendenteServiceImpl implements DipendenteService {
 		}
 		return new DipendenteDto(); // se già esiste ritorna un dipendente vuoto al front end)
 	}
-
+	@Override
+	public DipendenteDto modifica(DipendenteDto dipendenteDto) {//modifica entità già esistente... non può essere lo stesso metodo di aggiungi perchè non deve avere il controllo se già esiste
+		Dipendente modello=new Dipendente();
+		modello=dipendenteMapper.dtoToModel(dipendenteDto);
+		modello=dipendenteRepository.save(modello);
+		return dipendenteMapper.modelToDto(modello);
+	
+	}
+	
+	
+	
 	@Override
 	public DipendenteDto selezionaDaCodiceFiscale(String codiceFiscale) {
 		Dipendente dipendente = new Dipendente();
@@ -47,7 +56,7 @@ public class DipendenteServiceImpl implements DipendenteService {
 	}
 
 	@Override
-	public List<DipendenteDto> vediTutti() {
+	public List<DipendenteDto> selezionaTutti() {
 		List<Dipendente> dipendenteList = dipendenteRepository.findAll(); // inserisco tutti i dipendenti in una lista
 		List<DipendenteDto> dipendenteDtoList = new ArrayList<>();// creo una lista dto
 		for (Dipendente dipendente : dipendenteList) {
@@ -64,7 +73,7 @@ public class DipendenteServiceImpl implements DipendenteService {
 	}
 
 	@Override
-	public List<DipendenteDto> vediDaNomeCognome(String nome, String cognome) {
+	public List<DipendenteDto> selezionaDaNomeCognome(String nome, String cognome) {
 		// potrebbero esistere omonimi per questo ho messo la lista
 		List<Dipendente> dipendenteList = dipendenteRepository.findByNomeAndCognome(nome, cognome);
 		List<DipendenteDto> dipendenteDtoList = new ArrayList<>();// creo una lista dto

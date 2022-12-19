@@ -1,12 +1,18 @@
 package it.app.model;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import net.bytebuddy.utility.nullability.NeverNull;
@@ -17,46 +23,67 @@ public class ScheduleLavoro {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	@Column
 	@NeverNull
-	private Integer idLuogo;
 	@Column
+	private String mansione;//materia lavoro svolto //creare model mansione
 	@NeverNull
-	private Integer idDipendente;
+	@Column	
+	private Date dataInizioTask;
+	@NeverNull
 	@Column
+	private Date dataFineTask;
 	@NeverNull
-	private String task;
-	@NeverNull
-	@Column(name="datatask")
-	private Date dataTask;
 	@Column
-	private String note;
-	
-	
+	private String descrizione;
+	@NeverNull
+	@Column
+	private Stato stato;
+	@NeverNull
+	@OneToOne
+	@JoinColumn(name = "luogo_id", referencedColumnName = "id")
+	private LuogoDiLavoro luogo;
+	@OneToOne
+	@JoinColumn(name = "dipendente",referencedColumnName = "codiceFiscale" )
+	private Dipendente dipendente;
 	public Integer getId() {
 		return id;
 	}
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public String getTask() {
-		return task;
+
+
+	public String getMansione() {
+		return mansione;
 	}
-	public void setTask(String task) {
-		this.task = task;
+	public void setMansione(String mansione) {
+		this.mansione = mansione;
 	}
-	public Date getDataTask() {
-		return dataTask;
+	public Date getDataInizioTask() {
+		return dataInizioTask;
 	}
-	public void setDataTask(Date dataTask) {
-		this.dataTask = dataTask;
+	public void setDataInizioTask(Date dataInizioTask) {
+		this.dataInizioTask = dataInizioTask;
 	}
-	public String getNote() {
-		return note;
+	public Date getDataFineTask() {
+		return dataFineTask;
 	}
-	public void setNote(String note) {
-		this.note = note;
+	public void setDataFineTask(Date dataFineTask) {
+		this.dataFineTask = dataFineTask;
 	}
+	public String getDescrizione() {
+		return descrizione;
+	}
+	public void setDescrizione(String descrizione) {
+		this.descrizione = descrizione;
+	}
+	public LuogoDiLavoro getLuogo() {
+		return luogo;
+	}
+	public void setLuogo(LuogoDiLavoro luogo) {
+		this.luogo = luogo;
+	}
+
 	
 	
 	

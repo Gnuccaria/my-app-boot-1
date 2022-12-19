@@ -19,7 +19,7 @@ public class DipendenteProfiloServiceImpl implements DipendenteProfiloService{
 	public DipendenteProfiloDto aggiungi(DipendenteProfiloDto dto) {
 		
 		DipendenteProfilo modello=new DipendenteProfilo();
-		modello=repository.findByCodiceFiscale(dto.getCodiceFiscale());
+		modello=repository.findByUsername(dto.getCodiceFiscale());
 	
 		if(modello==null) {
            modello=mapper.dtoToModel(dto);
@@ -32,11 +32,11 @@ public class DipendenteProfiloServiceImpl implements DipendenteProfiloService{
 	@Override
 	public Integer elimina(String CodiceFiscale) {
 		
-		DipendenteProfilo modello=repository.findByCodiceFiscale(CodiceFiscale);//vedo se esiste
+		DipendenteProfilo modello=repository.findByUsername(CodiceFiscale);//vedo se esiste
 		
 		if(modello!=null) {//se esiste lo elimino
-			repository.deleteByCodiceFiscale(CodiceFiscale);
-			modello=repository.findByCodiceFiscale(CodiceFiscale);//controllo nuovamente se esiste
+			repository.deleteByUsername(CodiceFiscale);
+			modello=repository.findByUsername(CodiceFiscale);//controllo nuovamente se esiste
 			return 1;//ritorno 1 se l'ho eliminato;
 		}
 		
@@ -46,7 +46,7 @@ public class DipendenteProfiloServiceImpl implements DipendenteProfiloService{
 
 	@Override
 	public DipendenteProfiloDto vedi(String codiceFiscale) {//penso sia meglio vedere da username se esiste... 
-		DipendenteProfilo modello=repository.findByCodiceFiscale(codiceFiscale);//ottengo l'entità dal codice fiscale
+		DipendenteProfilo modello=repository.findByUsername(codiceFiscale);//ottengo l'entità dal codice fiscale
 		return mapper.modelToDto(modello);//ottengo il dto dal modello e lo ritorno
 	}
 

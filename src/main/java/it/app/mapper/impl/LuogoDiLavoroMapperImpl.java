@@ -1,9 +1,11 @@
 package it.app.mapper.impl;
 
+import org.springframework.stereotype.Component;
+
 import it.app.dto.LuogoDiLavoroDto;
 import it.app.mapper.LuogoDiLavoroMapper;
 import it.app.model.LuogoDiLavoro;
-
+@Component
 public class LuogoDiLavoroMapperImpl implements LuogoDiLavoroMapper{
 
 	@Override

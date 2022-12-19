@@ -9,10 +9,11 @@ import it.app.dto.DipendenteDto;
 
 public interface DipendenteService {
     DipendenteDto aggiungi(DipendenteDto dipendenteDto);
+    DipendenteDto modifica(DipendenteDto dipendenteDto);
 	DipendenteDto eliminaDaId(int id);
 	DipendenteDto vediPerId(int id);
 	DipendenteDto selezionaDaCodiceFiscale(String codiceFiscale);
-	List<DipendenteDto> vediTutti();
-	List<DipendenteDto> vediDaNomeCognome(String nome, String cognome); //ci possono essere omonimi
+	List<DipendenteDto> selezionaTutti();
+	List<DipendenteDto> selezionaDaNomeCognome(String nome, String cognome); //ci possono essere omonimi
 	
 }

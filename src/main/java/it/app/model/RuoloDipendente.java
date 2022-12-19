@@ -12,7 +12,7 @@ import javax.persistence.Table;
 import net.bytebuddy.utility.nullability.NeverNull;
 
 @Entity
-@Table(name = "ruolo")
+@Table(name = "ruolo") //tabella tipologica (tipologia di qualcosa) //id descrizione codice
 public class RuoloDipendente {
 
 	@Id

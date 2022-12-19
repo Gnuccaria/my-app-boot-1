@@ -37,7 +37,7 @@ public class ContrattoDipendente {
 	@NeverNull
 	private Float retribuzione;
 	@OneToOne
-	@JoinColumn(name = "ruolo_id", referencedColumnName = "id")
+	@JoinColumn(name = "ruolo_id", referencedColumnName = "id") 
 	private RuoloDipendente ruoloDipendente;
 	
 	public Integer getId() {

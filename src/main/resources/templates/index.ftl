@@ -13,7 +13,7 @@
 	src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <title>Controller</title>
+    <title>appe</title>
 </head>
 <body>
   <h1>Titolo di prova</h1>
@@ -61,6 +61,7 @@
 
     <button id="add">aggiungi</button>
     <button id="elimina">elimina</button>
+    <button id="eliminaD">elimina dipendente</button>
     <button id="cambia">stato</button>
     <button id="findall">vedi</button>
     <button id="findFiscal">vedi da codice fiscale</button>
@@ -71,22 +72,36 @@
 
 	<script type="text/javascript">  
 
+  
+   
+let dipendente={};  
 
-   dipendente={
-      nome:"abcd", //$("#name").val(),
-       cognome:"abcd", //$("#surname").val(),
-       luogoNascita:"abcd", //$("#birth_place").val(),
-       codiceFiscale:"codiceDelDipendente" ,//$("#fiscal_code").val(),
-       residenza:"abcd" ,//$("#residence").val(), 
-       indirizzo:"abcd" ,//$("#address").val(),
-       email:"abcd" ,//$("#email").val(),
-       numCellulare:"abcd", //$("#cell_phone").val(),
-       telCasa:"abcd", //$("#home_telephone").val(),
-       sesso:"abcd", //$("#sex").val(), 
-       dataNascita:new Date() ,//$("#birth_date").val()//deve essere in formato data
-  
-       }
-  
+function dip(){
+dipendente.nome=$("#name").val()
+dipendente.cognome=$("#surname").val(),
+dipendente.luogoNascita=$("#birth_place").val(),
+dipendente.codiceFiscale="codiceDelDipendente"//$("#fiscal_code").val(),
+dipendente.residenza=$("#residence").val(),
+dipendente.indirizzo=$("#address").val(),
+dipendente.email=$("#email").val()
+dipendente.numCellulare=$("#cell_phone").val()
+dipendente.telCasa=$("#home_telephone").val()
+dipendente.sesso=$("#sex").val()
+dipendente. dataNascita=new Date();
+dipendente.stato=1;
+
+
+
+
+
+
+
+
+
+
+}
+
+
        contratto={
         codiceFiscale:dipendente.codiceFiscale,
         tipo:"stage",
@@ -107,7 +122,7 @@
 	 
 	
 	$(document).on('click', "#add", function () {
-      
+      dip()
 	   
 
 console.log(dipendente)
@@ -211,6 +226,22 @@ $(document).on('click', "#findFiscalcont", function (){
     });//
 	//location.reload();
   })
+  	$(document).on('click', "#eliminaD", function (){
+	$.ajax({//
+        type: 'DELETE',
+        url: '/dipendente/elimina',
+        data:{codice:"codiceDelDipendente",},
+      asynch: false,
+       
+         success: function(text) {
+            console.log(text);
+        },
+        error: function (jqXHR) {
+            console.log(jqXHR);
+        } 
+    });//
+	//location.reload();
+  })
 
 $(document).on('click', "#cambia", function (){
 	$.ajax({//
@@ -233,11 +264,11 @@ $(document).on('click', "#findFiscal", function (){
 	$.ajax({//
         type: 'POST',
         url: '/dipendente/vedi',
-        data:{fiscal_code:"codiceDelDipendente",},
+        data:{codice:"codiceDelDipendente",},
        asynch: false,
        
          success: function(text) {
-            console.log(text)
+            console.log("dip" ,text)
            fiscal=text;
         },
         error: function (jqXHR) {
@@ -252,7 +283,7 @@ $(document).on("click", "#veditutto",function(){
 
 	$.ajax({//
         type: 'POST',
-        url: '/veditutti',
+        url: '/dipendente/vedi/tutti',
         contentType: "application/json",
         data:{},
       asynch: false,

@@ -11,7 +11,7 @@ public class StoricoServiceImpl implements StoricoService{
 
 	@Override
 	public List<StoricoLavoroDto> vedi(String idLuogo) {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
