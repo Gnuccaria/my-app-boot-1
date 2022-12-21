@@ -1,5 +1,7 @@
 package it.app.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,7 +15,11 @@ import net.bytebuddy.utility.nullability.NeverNull;
 
 @Entity
 @Table(name = "profilo")
-public class DipendenteProfilo {
+public class DipendenteProfilo implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
@@ -25,11 +31,9 @@ public class DipendenteProfilo {
 	private String password;
 	@OneToOne
 	@NeverNull
-	@JoinColumn(name = "codice", referencedColumnName = "codiceFiscale")
-     private Dipendente dipendente;
-	// il capo assegna l'account al dipndente (cliccando sui dati del dipendente per
-	// creare un account, passa l'id al backend)
-
+     @JoinColumn(name = "id_dipendente", referencedColumnName = "id")
+     private Dipendente dipendenteId;
+	
 
 	public Integer getId() {
 		return id;
@@ -38,14 +42,15 @@ public class DipendenteProfilo {
 		this.id = id;
 	}
 
-	public Dipendente getDipendente() {
-		return dipendente;
-	}
 
-	public void setDipendente(Dipendente dipendente) {
-		this.dipendente = dipendente;
-	}
 
+	
+	public Dipendente getDipendenteId() {
+		return dipendenteId;
+	}
+	public void setDipendenteId(Dipendente dipendenteId) {
+		this.dipendenteId = dipendenteId;
+	}
 	public String getUserName() {
 		return username;
 	}

@@ -19,7 +19,7 @@ public class DipendenteProfiloServiceImpl implements DipendenteProfiloService{
 	public DipendenteProfiloDto aggiungi(DipendenteProfiloDto dto) {
 		
 		DipendenteProfilo modello=new DipendenteProfilo();
-		modello=repository.findByUsername(dto.getCodiceFiscale());
+		modello=repository.findByUsername(dto.getUserName());
 	
 		if(modello==null) {
            modello=mapper.dtoToModel(dto);

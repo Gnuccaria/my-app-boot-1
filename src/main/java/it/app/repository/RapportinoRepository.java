@@ -3,9 +3,9 @@ package it.app.repository;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import it.app.model.OrarioDipendente;
+import it.app.model.Rapportino;
 
 @Repository
-public interface OrarioDipendenteRepository extends CrudRepository<OrarioDipendente, Integer> {
+public interface RapportinoRepository extends CrudRepository<Rapportino, Integer> {
 
 }

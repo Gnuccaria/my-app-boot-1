@@ -20,9 +20,6 @@ public class RuoloDipendente {
 	private Integer id;
 	@NeverNull
 	@Column
-	private Integer idDipendente;// se il mio id è 17, il contratto con idDipendente 17 sarà il mio
-	@NeverNull
-	@Column
 	private String inquadramento;
 	@Column
 	private String descrizione;
@@ -32,6 +29,12 @@ public class RuoloDipendente {
 	@OneToOne
 	@JoinColumn(name = "contratto_id", referencedColumnName = "id")
 	private ContrattoDipendente contratto;
+	@OneToOne
+	@JoinColumn(name = "dpendnte_id", referencedColumnName = "id")
+	private Dipendente dipendente;
+	
+	
+	
 	
 	public Integer getId() {
 		return id;
@@ -39,12 +42,13 @@ public class RuoloDipendente {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public Integer getIdDipendente() {
-		return idDipendente;
+	public Dipendente getDipendente() {
+		return dipendente;
 	}
-	public void setIdDipendente(Integer idDipendente) {
-		this.idDipendente = idDipendente;
+	public void setDipendente(Dipendente dipendente) {
+		this.dipendente = dipendente;
 	}
+
 	public String getInquadramento() {
 		return inquadramento;
 	}

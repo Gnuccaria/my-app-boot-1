@@ -5,7 +5,6 @@ import java.util.Date;
 import it.app.model.AziendaDipendente;
 import it.app.model.ContrattoDipendente;
 import it.app.model.DipendenteProfilo;
-import it.app.model.OrarioDipendente;
 import it.app.model.Stato;
 import it.app.model.StatusGenerale;
 

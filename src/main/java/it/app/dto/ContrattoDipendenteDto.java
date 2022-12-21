@@ -2,12 +2,13 @@ package it.app.dto;
 
 import java.util.Date;
 
+import it.app.model.Dipendente;
 import it.app.model.RuoloDipendente;
 
 
 public class ContrattoDipendenteDto {
 
-    private Integer Id;
+    private Integer id;
 	private String codiceFiscale;
 	private String tipo;
     private Integer oreContratto;
@@ -15,8 +16,14 @@ public class ContrattoDipendenteDto {
 	private Date dataScadenzaContratto;
 	private Float retribuzione;
 	private RuoloDipendente ruoloDipendente;
-	
+	private Dipendente idDipendente;
 
+	public Dipendente getIdDipendente() {
+		return idDipendente;
+	}
+	public void setIdDipendente(Dipendente idDipendente) {
+		this.idDipendente = idDipendente;
+	}
 	public String getCodiceFiscale() {
 		return codiceFiscale;
 	}
@@ -38,10 +45,10 @@ public class ContrattoDipendenteDto {
 		this.ruoloDipendente = ruoloDipendente;
 	}
 	public Integer getId() {
-		return Id;
+		return id;
 	}
 	public void setId(Integer id) {
-		Id = id;
+		this.id = id;
 	}
 	public String getTipo() {
 		return tipo;

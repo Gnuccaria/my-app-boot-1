@@ -45,6 +45,20 @@ public class ScheduleServiceImpl implements ScheduleService{
 		repository.deleteById(id);
 	}
 
+	@Override
+	public List<ScheduleLavoroDto> vediSchedulePerLuogo(Integer idLavoro) {
+		List <ScheduleLavoro> modello=repository.findByLuogoId(idLavoro);
+		List <ScheduleLavoroDto> listDto=new ArrayList<>();
+		
+		for (ScheduleLavoro scheduleLavoro : modello) {
+			listDto.add(mapper.modelToDto(scheduleLavoro));
+		}
+		
+		
+		
+		return listDto;
+	}
+
 
 	
 }

@@ -18,9 +18,10 @@ public class ScheduleLavoroMapperImpl implements ScheduleLavoroMapper {
 		modello.setDataInizioTask(dto.getDataInizioTask());
 		modello.setDataFineTask(dto.getDataFineTask());
 		modello.setDescrizione(dto.getDescrizione());
-		//modello.setIdDipendente(dto.getIdDipendente());
+		modello.setStato(dto.getStato());
 		modello.setLuogo(dto.getLuogo());
-		modello.setMansione(dto.getMansione());//materia lavoro svolto (task)
+		modello.setMansione(dto.getMansione());
+		modello.setDipendente(dto.getDipendente());
 		return modello;
 	}
 
@@ -31,9 +32,10 @@ public class ScheduleLavoroMapperImpl implements ScheduleLavoroMapper {
 		dto.setDataInizioTask(modello.getDataInizioTask());
 		dto.setDataFineTask(modello.getDataFineTask());
 		dto.setDescrizione(modello.getDescrizione());
-		//.setIdDipendente(modello.getIdDipendente());
 		dto.setLuogo(modello.getLuogo());
 		dto.setMansione(modello.getMansione());
+		dto.setStato(modello.getStato());
+		dto.setDipendente(modello.getDipendente());
 		return dto;
 	}
 

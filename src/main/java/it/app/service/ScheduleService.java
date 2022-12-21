@@ -14,4 +14,7 @@ public interface ScheduleService {
 	ScheduleLavoroDto aggiungi(ScheduleLavoroDto scheduleDto);
 	
 	void eliminaDaId(Integer id);
+	
+	List<ScheduleLavoroDto>vediSchedulePerLuogo(Integer idLavoro);
+	
 }

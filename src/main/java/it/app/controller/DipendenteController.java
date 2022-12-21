@@ -2,6 +2,7 @@
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -58,10 +59,11 @@ public class DipendenteController {
 		return dipendenteDto;
 	}
 
-	@PutMapping("/modifica")
+	@PutMapping(path="/modifica", produces="application/json" )
 	public ResponseEntity<DipendenteDto> modifica(@RequestBody DipendenteDto dto) {
 		// inserire il dto modificato
-
+		
+	
 		try {
 			dipendenteService.modifica(dto);
 		} catch (Exception e) {
@@ -108,18 +110,59 @@ public class DipendenteController {
 		}
 		return new ResponseEntity<DipendenteDto>(dto, HttpStatus.OK);
 	}
+	
+	//_________________ PROVA CON FILTER
 
-	@PostMapping("/vedi/nominativi")
-	public ResponseEntity<List<DipendenteDto>> vediDipendente(@RequestParam("nome") String nome,
-			@RequestParam("cognome") String Cognome) {
-		List<DipendenteDto> dto = new ArrayList<>();
+	@PostMapping("cerca")
+	public ResponseEntity<DipendenteDto> vediDipendenteIdMap(@RequestParam  int id) {
+		List<DipendenteDto> dipendenteDtoList = new ArrayList<>();
+		 DipendenteDto dip=new DipendenteDto();
 		try {
-			dto = dipendenteService.selezionaDaNomeCognome(nome, Cognome);
+			dipendenteDtoList = dipendenteService.selezionaTutti()
+					.stream()
+					.filter(d -> d.getId().equals(id))
+					.collect(Collectors.toList());
+                    dip=dipendenteDtoList.get(0);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
-			return null;
 		}
-		return new ResponseEntity<List<DipendenteDto>>(dto, HttpStatus.OK);
+		return new ResponseEntity<DipendenteDto>(dip, HttpStatus.OK);
 	}
+	//_________________ PROVA CON FILTER
+	
+	
+	
+	@PostMapping("/vedi/nominativi")
+	public ResponseEntity<List<DipendenteDto>> vediDipendente(@RequestParam("nome") String nome,
+			@RequestParam("cognome") String cognome) {
+		List<DipendenteDto> dipendenteDtoList = new ArrayList<>();
+		
+		try {
+			dipendenteDtoList = dipendenteService.selezionaDaNomeCognome(nome,cognome);
+					
+                   
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return new ResponseEntity<List<DipendenteDto>>(dipendenteDtoList , HttpStatus.OK);
+	}
+	
+	
+//	@PostMapping("/vedi/nominativi")
+//	public ResponseEntity<List<DipendenteDto>> vediDipendente(@RequestParam("nome") String nome,
+//			@RequestParam("cognome") String cognome) {
+//		List<DipendenteDto> dipendenteDtoList = new ArrayList<>();
+//		
+//		try {
+//			dipendenteDtoList = dipendenteService.selezionaTutti()
+//					.stream()
+//					.filter(d -> (d.getNome()+d.getCognome()).toUpperCase().equals((nome+cognome).toUpperCase()))
+//					.collect(Collectors.toList());
+//                   
+//		} catch (Exception e) {
+//			System.out.println(e.getMessage());
+//		}
+//		return new ResponseEntity<List<DipendenteDto>>(dipendenteDtoList , HttpStatus.OK);
+//	}
 
 }

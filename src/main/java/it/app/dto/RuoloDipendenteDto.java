@@ -2,6 +2,7 @@ package it.app.dto;
 
 
 import it.app.model.ContrattoDipendente;
+import it.app.model.Dipendente;
 
 public class RuoloDipendenteDto {
 	
@@ -11,13 +12,7 @@ public class RuoloDipendenteDto {
 	private String descrizione;
 	private String livello;
 	private ContrattoDipendente contratto;
-	
-	public String getLivello() {
-		return livello;
-	}
-	public void setLivello(String livello) {
-		this.livello = livello;
-	}
+	private Dipendente dipendente;
 	public Integer getId() {
 		return id;
 	}
@@ -36,10 +31,24 @@ public class RuoloDipendenteDto {
 	public void setDescrizione(String descrizione) {
 		this.descrizione = descrizione;
 	}
+	public String getLivello() {
+		return livello;
+	}
+	public void setLivello(String livello) {
+		this.livello = livello;
+	}
 	public ContrattoDipendente getContratto() {
 		return contratto;
 	}
 	public void setContratto(ContrattoDipendente contratto) {
 		this.contratto = contratto;
 	}
+	public Dipendente getDipendente() {
+		return dipendente;
+	}
+	public void setDipendente(Dipendente dipendente) {
+		this.dipendente = dipendente;
+	}
+	
+	
 }

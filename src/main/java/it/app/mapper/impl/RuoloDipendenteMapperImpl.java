@@ -16,6 +16,7 @@ public class RuoloDipendenteMapperImpl implements RuoloDipendenteMapper {
       ruolo.setDescrizione(ruoloDto.getDescrizione());
       ruolo.setInquadramento(ruoloDto.getInquadramento());
       ruolo.setId(ruoloDto.getId());
+      ruolo.setDipendente(ruoloDto.getDipendente());
 		return ruolo;
 	}
 
@@ -27,6 +28,7 @@ public class RuoloDipendenteMapperImpl implements RuoloDipendenteMapper {
 	      ruoloDto.setDescrizione(ruoloDto.getDescrizione());
 	      ruoloDto.setInquadramento(ruoloDto.getInquadramento());
 	      ruoloDto.setId(ruoloDto.getId());		
+	      ruoloDto.setDipendente(ruolo.getDipendente());
 	      return ruoloDto;
 	}
 

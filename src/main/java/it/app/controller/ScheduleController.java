@@ -1,9 +1,15 @@
 package it.app.controller;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -42,6 +48,20 @@ public class ScheduleController {
 		return new ResponseEntity<>(HttpStatus.OK);
     	
     }
-    
+    @PostMapping("/vedi/storico")
+    public List<ScheduleLavoroDto> storico(@RequestParam ("luogo")Integer luogoId){
+		Date data=new Date();
+	   List<ScheduleLavoroDto>listaDto=new ArrayList<>();
+    	
+			listaDto=service.vediSchedulePerLuogo(luogoId)
+					.stream()
+					.filter(e->(e.getDataInizioTask().before(data)))
+				    .collect(Collectors.toList());
+				
+	
+   
+    	return listaDto;
+    	
+    }
 	
 }

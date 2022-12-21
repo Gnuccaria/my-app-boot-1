@@ -14,7 +14,7 @@ public class DipendenteProfiloMapperImpl implements DipendenteProfiloMapper{
 		dipProfilo.setId(profiloDto.getId());
 		dipProfilo.setUserName(profiloDto.getUserName());
 		dipProfilo.setPassword(profiloDto.getPassword());
-		//dipProfilo.setCodiceFiscale(profiloDto.getCodiceFiscale());
+		dipProfilo.setDipendenteId(profiloDto.getDipendenteId());
 		return dipProfilo;
 	}
 
@@ -24,7 +24,7 @@ public class DipendenteProfiloMapperImpl implements DipendenteProfiloMapper{
 		profiloDto.setId(dipProfilo.getId());
 		profiloDto.setUserName(dipProfilo.getUserName());
 		profiloDto.setPassword(dipProfilo.getPassword());
-		//profiloDto.setCodiceFiscale(dipProfilo.getCodiceFiscale());
+		profiloDto.setDipendenteId(dipProfilo.getDipendenteId());
 		return profiloDto;
 	}
 

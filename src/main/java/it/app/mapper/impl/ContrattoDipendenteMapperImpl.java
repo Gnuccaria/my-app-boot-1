@@ -20,21 +20,23 @@ public class ContrattoDipendenteMapperImpl implements ContrattoDipendenteMapper 
 		modello.setDataAssunzione(contDipDto.getDataAssunzione());
 		modello.setDataScadenzaContratto(contDipDto.getDataScadenzaContratto());
 		modello.setRetribuzione(contDipDto.getRetribuzione());
+		modello.setIdDipendente(contDipDto.getIdDipendente());
 		return modello;
 	}
 
 	@Override
 	public ContrattoDipendenteDto modelToDto(ContrattoDipendente contDip) {
-		ContrattoDipendenteDto modelloDto = new ContrattoDipendenteDto();
-		modelloDto.setId(contDip.getId());
-		modelloDto.setCodiceFiscale(contDip.getCodiceDipendente());
-		modelloDto.setTipo(contDip.getTipo());
-		modelloDto.setRuoloDipendente(contDip.getRuoloDipendente());
-		modelloDto.setOreContratto(contDip.getOreContratto());
-		modelloDto.setDataAssunzione(contDip.getDataAssunzione());
-		modelloDto.setDataScadenzaContratto(contDip.getDataScadenzaContratto());
-		modelloDto.setRetribuzione(contDip.getRetribuzione());
-		return modelloDto;
+		ContrattoDipendenteDto dto = new ContrattoDipendenteDto();
+		dto.setId(contDip.getId());
+		dto.setCodiceFiscale(contDip.getCodiceDipendente());
+		dto.setTipo(contDip.getTipo());
+		dto.setRuoloDipendente(contDip.getRuoloDipendente());
+		dto.setOreContratto(contDip.getOreContratto());
+		dto.setDataAssunzione(contDip.getDataAssunzione());
+		dto.setDataScadenzaContratto(contDip.getDataScadenzaContratto());
+		dto.setRetribuzione(contDip.getRetribuzione());
+		dto.setIdDipendente(contDip.getIdDipendente());
+		return dto;
 	}
 
 }

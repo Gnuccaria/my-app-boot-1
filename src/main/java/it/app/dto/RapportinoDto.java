@@ -1,10 +1,14 @@
 package it.app.dto;
 
-public class OrarioDipendenteDto {
+import java.util.Date;
+
+import it.app.model.Dipendente;
+
+public class RapportinoDto {
 
 	private Integer id;
 	
-	private Integer idDipendente;
+	private Dipendente codiceDipendente;
 	
 	private Integer oreLavorate;
 
@@ -15,7 +19,7 @@ public class OrarioDipendenteDto {
 	private Integer oreFerie;
 
 	private Integer oreMalattia;
-
+	private Date meseRiferimento;
 	public Integer getId() {
 		return id;
 	}
@@ -23,12 +27,12 @@ public class OrarioDipendenteDto {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public Integer getIdDipendente() {
-		return idDipendente;
+	public Dipendente getCodiceDipendente() {
+		return codiceDipendente;
 	}
 
-	public void setIdDipendente(Integer idDipendente) {
-		this.idDipendente = idDipendente;
+	public void setCodiceDipendente(Dipendente codiceDipendente) {
+		this.codiceDipendente = codiceDipendente;
 	}
 
 	public Integer getOreLavorate() {
@@ -69,6 +73,14 @@ public class OrarioDipendenteDto {
 
 	public void setOreMalattia(Integer oreMalattia) {
 		this.oreMalattia = oreMalattia;
+	}
+
+	public Date getMeseRiferimento() {
+		return meseRiferimento;
+	}
+
+	public void setMeseRiferimento(Date meseRiferimento) {
+		this.meseRiferimento = meseRiferimento;
 	}
 
 }

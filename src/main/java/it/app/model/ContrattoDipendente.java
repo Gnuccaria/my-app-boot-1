@@ -1,5 +1,6 @@
 package it.app.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -15,10 +16,16 @@ import net.bytebuddy.utility.nullability.NeverNull;
 
 @Entity
 @Table(name = "contratto")
-public class ContrattoDipendente {
+public class ContrattoDipendente implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer Id;
+	private Integer id;
 	@Column
 	@NeverNull
 	private String codiceFiscale;
@@ -39,12 +46,22 @@ public class ContrattoDipendente {
 	@OneToOne
 	@JoinColumn(name = "ruolo_id", referencedColumnName = "id") 
 	private RuoloDipendente ruoloDipendente;
+	@OneToOne
+	@JoinColumn(name = "dipendente_id", referencedColumnName = "id")
+	private Dipendente idDipendente;
 	
+	
+	public Dipendente getIdDipendente() {
+		return idDipendente;
+	}
+	public void setIdDipendente(Dipendente idDipendente) {
+		this.idDipendente = idDipendente;
+	}
 	public Integer getId() {
-		return Id;
+		return id;
 	}
 	public void setId(Integer id) {
-		Id = id;
+		this.id = id;
 	}
 	public String getCodiceDipendente() {
 		return codiceFiscale;

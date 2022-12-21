@@ -1,7 +1,9 @@
 package it.app.model;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -19,7 +21,13 @@ import net.bytebuddy.utility.nullability.NeverNull;
 
 @Entity
 @Table(name="schedule")
-public class ScheduleLavoro {
+public class ScheduleLavoro implements Serializable {
+	
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
@@ -43,10 +51,23 @@ public class ScheduleLavoro {
 	@JoinColumn(name = "luogo_id", referencedColumnName = "id")
 	private LuogoDiLavoro luogo;
 	@OneToOne
-	@JoinColumn(name = "dipendente",referencedColumnName = "codiceFiscale" )
+	@JoinColumn(name = "dipendente",referencedColumnName = "codiceFiscale" )//oneToMany 
 	private Dipendente dipendente;
 	public Integer getId() {
 		return id;
+	}
+	public Stato getStato() {
+		return stato;
+	}
+	public void setStato(Stato stato) {
+		this.stato = stato;
+	}
+	
+	public Dipendente getDipendente() {
+		return dipendente;
+	}
+	public void setDipendente(Dipendente dipendente) {
+		this.dipendente = dipendente;
 	}
 	public void setId(Integer id) {
 		this.id = id;

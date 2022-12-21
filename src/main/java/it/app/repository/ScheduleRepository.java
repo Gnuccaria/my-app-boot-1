@@ -15,4 +15,7 @@ public interface ScheduleRepository extends CrudRepository<ScheduleLavoro, Integ
 @Query(value="SELECT s FROM schedule s WHERE s.luogoId=?1 AND s.dataInizioTask >= :data " )
 	List <ScheduleLavoro> findByLuogoIdAndDataInizioTask(Integer luogoId, Date data);//lista dello storico di quel luogo dove la data di inizio è almeno uguale a oggi
 	
+
+@Query(value="SELECT s FROM schedule s WHERE s.luogo_id=luogoId" )
+List <ScheduleLavoro> findByLuogoId(Integer luogoId);
 }

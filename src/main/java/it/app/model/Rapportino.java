@@ -1,23 +1,27 @@
 package it.app.model;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import net.bytebuddy.utility.nullability.NeverNull;
 
 @Entity
 @Table(name = "orario")
-public class OrarioDipendente {
+public class Rapportino {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	@Column
-	@NeverNull
-	private Integer idDipendente;
+	@OneToOne
+	@JoinColumn(name="codice_dipendente",referencedColumnName = "codiceFiscale" )
+	private Dipendente codiceDipendente;
 	@Column(name = "ore_lavorate")
 	private Integer oreLavorate;
 	@Column(name = "ore_permesso_usufruite")
@@ -28,6 +32,15 @@ public class OrarioDipendente {
 	private Integer oreFerie;
 	@Column(name = "ore_malattia")
 	private Integer oreMalattia;
+    private Date meseRiferimento;
+	
+	public Date getMeseRiferimento() {
+		return meseRiferimento;
+	}
+
+	public void setMeseRiferimento(Date meseRiferimento) {
+		this.meseRiferimento = meseRiferimento;
+	}
 
 	public Integer getId() {
 		return id;
@@ -36,12 +49,12 @@ public class OrarioDipendente {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public Integer getIdDipendente() {
-		return idDipendente;
+	public Dipendente getCodiceDipendente() {
+		return codiceDipendente;
 	}
 
-	public void setIdDipendente(Integer idDipendente) {
-		this.idDipendente = idDipendente;
+	public void setCodiceDipendente(Dipendente codiceDipendente) {
+		this.codiceDipendente = codiceDipendente;
 	}
 	public Integer getOreLavorate() {
 		return oreLavorate;

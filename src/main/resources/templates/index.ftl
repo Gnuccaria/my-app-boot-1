@@ -19,8 +19,10 @@
   <h1>Titolo di prova</h1>
 
 
-
-
+<div>
+  <input type=text id="id" placeholder="id"/>
+  </div>
+<div>
   <input type=text id="name" placeholder="name"/>
   </div>
     <div>
@@ -62,7 +64,7 @@
     <button id="add">aggiungi</button>
     <button id="elimina">elimina</button>
     <button id="eliminaD">elimina dipendente</button>
-    <button id="cambia">stato</button>
+    <button id="cambia">modifica</button>
     <button id="findall">vedi</button>
     <button id="findFiscal">vedi da codice fiscale</button>
     <button id="veditutto">vedi tutto</button>
@@ -77,15 +79,16 @@
 let dipendente={};  
 
 function dip(){
+  dipendente.id=$("#id").val()
 dipendente.nome=$("#name").val()
 dipendente.cognome=$("#surname").val(),
 dipendente.luogoNascita=$("#birth_place").val(),
-dipendente.codiceFiscale="codiceDelDipendente"//$("#fiscal_code").val(),
+dipendente.codiceFiscale=$("#fiscal_code").val(),
 dipendente.residenza=$("#residence").val(),
 dipendente.indirizzo=$("#address").val(),
 dipendente.email=$("#email").val()
-dipendente.numCellulare=$("#cell_phone").val()
-dipendente.telCasa=$("#home_telephone").val()
+dipendente.telefonoCellulare=$("#cell_phone").val()
+dipendente.telefonoCasa=$("#home_telephone").val()
 dipendente.sesso=$("#sex").val()
 dipendente. dataNascita=new Date();
 dipendente.stato=1;
@@ -244,11 +247,13 @@ $(document).on('click', "#findFiscalcont", function (){
   })
 
 $(document).on('click', "#cambia", function (){
+dip()
 	$.ajax({//
-        type: 'POST',
-        url: '/state',
-        data:{state:"abcd",},
-      
+        type: 'PUT',
+         contentType: "application/json",
+        url: '/dipendente/modifica',
+        data:JSON.stringify(dipendente),
+      asynch: false,
        
          success: function(text) {
             console.log(text);
